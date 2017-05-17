@@ -59,11 +59,10 @@ var bio = {
         var HTMLskillsTemp="";
         $("#header").append(HTMLskillsStart);
         //Adds each skill in the index.html
-        for (var skill in bio.skills) {
-            HTMLskillsTemp = HTMLskills;
-            HTMLskillsTemp = HTMLskills.replace("%data%",bio.skills[skill]);
+        bio.skills.forEach(function(element){
+            HTMLskillsTemp = HTMLskills.replace("%data%",element);
             $("#skills").append(HTMLskillsTemp);
-        };
+        });
         //Adds the internationalizeButton in the index.html
         $("#topContacts").append(internationalizeButton);
     }
@@ -99,6 +98,7 @@ var education = {
             "majors": [
                 "a","d"
             ],
+            "dates": "2003-2007",
             "url": ""
         }
     ],
@@ -285,6 +285,7 @@ function inName(name){
     return nameFormated;
 }
 
+//Calls the main display methods
 bio.display();
 work.display();
 projects.display();
