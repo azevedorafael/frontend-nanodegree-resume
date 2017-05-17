@@ -134,27 +134,31 @@ var education = {
             HTMLonlineURLTemp ="";
 
         for(var i in education.schools){
-            HTMLschoolNameTemp = HTMLschoolName.replace("%data%",education.schools[i].name);
-            HTMLschoolDegreeTemp = HTMLschoolDegree.replace("%data%",education.schools[i].degree);
-            $(".education-entry").append(HTMLschoolNameTemp+HTMLschoolDegreeTemp);
-            HTMLschoolDatesTemp = HTMLschoolDates.replace("%data%",education.schools[i].dates);
-            $(".education-entry").append(HTMLschoolDatesTemp);
-            HTMLschoolLocationTemp = HTMLschoolLocation.replace("%data%",education.schools[i].location);
-            $(".education-entry").append(HTMLschoolLocationTemp);
-            HTMLschoolMajorTemp = HTMLschoolMajor.replace("%data%",education.schools[i].majors);
-            $(".education-entry").append(HTMLschoolMajorTemp);
+            if(education.schools.hasOwnProperty(i)){
+                HTMLschoolNameTemp = HTMLschoolName.replace("%data%",education.schools[i].name);
+                HTMLschoolDegreeTemp = HTMLschoolDegree.replace("%data%",education.schools[i].degree);
+                $(".education-entry").append(HTMLschoolNameTemp+HTMLschoolDegreeTemp);
+                HTMLschoolDatesTemp = HTMLschoolDates.replace("%data%",education.schools[i].dates);
+                $(".education-entry").append(HTMLschoolDatesTemp);
+                HTMLschoolLocationTemp = HTMLschoolLocation.replace("%data%",education.schools[i].location);
+                $(".education-entry").append(HTMLschoolLocationTemp);
+                HTMLschoolMajorTemp = HTMLschoolMajor.replace("%data%",education.schools[i].majors);
+                $(".education-entry").append(HTMLschoolMajorTemp);
+            }
         };
 
         $(".education-entry").append(HTMLonlineClasses);
 
         for(var x in education.onlineCourses){
-            HTMLonlineTitleTemp = HTMLonlineTitle.replace("%data%",education.onlineCourses[x].title);
-            HTMLonlineSchoolTemp = HTMLonlineSchool.replace("%data%",education.onlineCourses[x].school);
-            $(".education-entry").append(HTMLonlineTitleTemp+HTMLonlineSchoolTemp);
-            HTMLonlineDatesTemp = HTMLonlineDates.replace("%data%",education.onlineCourses[x].dates);
-            $(".education-entry").append(HTMLonlineDatesTemp);
-            HTMLonlineURLTemp = HTMLonlineURL.replace("%data%",education.onlineCourses[x].url);
-            $(".education-entry").append(HTMLonlineURLTemp);
+            if(education.onlineCourses.hasOwnProperty(x)){
+                HTMLonlineTitleTemp = HTMLonlineTitle.replace("%data%",education.onlineCourses[x].title);
+                HTMLonlineSchoolTemp = HTMLonlineSchool.replace("%data%",education.onlineCourses[x].school);
+                $(".education-entry").append(HTMLonlineTitleTemp+HTMLonlineSchoolTemp);
+                HTMLonlineDatesTemp = HTMLonlineDates.replace("%data%",education.onlineCourses[x].dates);
+                $(".education-entry").append(HTMLonlineDatesTemp);
+                HTMLonlineURLTemp = HTMLonlineURL.replace("%data%",education.onlineCourses[x].url);
+                $(".education-entry").append(HTMLonlineURLTemp);
+            }
         };
     }
 };
@@ -197,16 +201,18 @@ var work = {
             HTMLworkDescriptionTemp ="";
 
         for (var i in work.jobs) {
-            $("#workExperience").append(HTMLworkStart);
-            HTMLworkEmployerTemp = HTMLworkEmployer.replace("%data%",work.jobs[i].employer);
-            HTMLworkTitleTemp = HTMLworkTitle.replace("%data%",work.jobs[i].title);
-            $(".work-entry:last").append(HTMLworkEmployerTemp+" "+HTMLworkTitleTemp);
-            HTMLworkDatesTemp = HTMLworkDates.replace("%data%",work.jobs[i].dates);
-            $(".work-entry:last").append(HTMLworkDatesTemp);
-            HTMLworkLocationTemp = HTMLworkLocation.replace("%data%",work.jobs[i].location);
-            $(".work-entry:last").append(HTMLworkLocationTemp);
-            HTMLworkDescriptionTemp = HTMLworkDescription.replace("%data%",work.jobs[i].description);
-            $(".work-entry:last").append(HTMLworkDescriptionTemp);
+            if(work.jobs.hasOwnProperty(i)){
+                $("#workExperience").append(HTMLworkStart);
+                HTMLworkEmployerTemp = HTMLworkEmployer.replace("%data%",work.jobs[i].employer);
+                HTMLworkTitleTemp = HTMLworkTitle.replace("%data%",work.jobs[i].title);
+                $(".work-entry:last").append(HTMLworkEmployerTemp+" "+HTMLworkTitleTemp);
+                HTMLworkDatesTemp = HTMLworkDates.replace("%data%",work.jobs[i].dates);
+                $(".work-entry:last").append(HTMLworkDatesTemp);
+                HTMLworkLocationTemp = HTMLworkLocation.replace("%data%",work.jobs[i].location);
+                $(".work-entry:last").append(HTMLworkLocationTemp);
+                HTMLworkDescriptionTemp = HTMLworkDescription.replace("%data%",work.jobs[i].description);
+                $(".work-entry:last").append(HTMLworkDescriptionTemp);
+            }
         }
     }
 };
@@ -245,16 +251,18 @@ var projects = {
             HTMLprojectImageTemp ="";
 
         for (var i in projects.projects) {
-            $("#projects").append(HTMLprojectStart);
-            HTMLprojectTitleTemp = HTMLprojectTitle.replace("%data%",projects.projects[i].title);
-            $(".project-entry:last").append(HTMLprojectTitleTemp);
-            HTMLprojectDatesTemp = HTMLprojectDates.replace("%data%",projects.projects[i].dates);
-            $(".project-entry:last").append(HTMLprojectDatesTemp);
-            HTMLprojectDescriptionTemp = HTMLprojectDescription.replace("%data%",projects.projects[i].description);
-            $(".project-entry:last").append(HTMLprojectDescriptionTemp);
-            for (var x in projects.projects[i].images) {
-                HTMLprojectImageTemp = HTMLprojectImage.replace("%data%",projects.projects[i].images[x]);
-                $(".project-entry:last").append(HTMLprojectImageTemp);
+            if(projects.projects.hasOwnProperty(i)){
+                $("#projects").append(HTMLprojectStart);
+                HTMLprojectTitleTemp = HTMLprojectTitle.replace("%data%",projects.projects[i].title);
+                $(".project-entry:last").append(HTMLprojectTitleTemp);
+                HTMLprojectDatesTemp = HTMLprojectDates.replace("%data%",projects.projects[i].dates);
+                $(".project-entry:last").append(HTMLprojectDatesTemp);
+                HTMLprojectDescriptionTemp = HTMLprojectDescription.replace("%data%",projects.projects[i].description);
+                $(".project-entry:last").append(HTMLprojectDescriptionTemp);
+                for (var x in projects.projects[i].images) {
+                    HTMLprojectImageTemp = HTMLprojectImage.replace("%data%",projects.projects[i].images[x]);
+                    $(".project-entry:last").append(HTMLprojectImageTemp);
+                }
             }
         }
     }
