@@ -1,19 +1,4 @@
-/*
-This is empty on purpose! Your code to build the resume will go here.
-*/
-// var myName = "Rafael de Azevedo";
-// var myRole = "Full Stack Web Developer"
-// var formattedName = HTMLheaderName.replace("%data%",myName);
-// var formattedRole = HTMLheaderRole.replace("%data%",myRole);
-
-// $("#header").append(formattedRole);
-// $("#header").prepend(formattedName);
-// $("#header").append("</br>");
-// $("#main").append(bio.skills[0]);
-// $("#main").append(bio.skills[1]);
-// $("#main").append(work["position"]);
-// $("#main").append(education.name);
-
+//Creates JSON bio
 var bio = {
     "name": "Rafael Azevedo",
     "role": "Full-Stack Developer",
@@ -22,117 +7,211 @@ var bio = {
         "email": "rafaelsilva@gmail.com",
         "github": "azevedorafael",
         "twitter": "@Rafazevedosilva",
-        "location": "São Paulo, SP"
+        "location": "São Paulo"
     },
     "welcomeMessage": "'Timendi causa est nescire - Ignorance is the cause of fear.'",
     "skills": [
         "HTML5", "CSS3", "JS", "JQuery", "GULP"
     ],
     "bioPic": "images/fry.jpg",
+    /**
+    * @description Adds all bio object details in the index.html
+    *
+    */
     "display" : function (){
-        HTMLheaderName = HTMLheaderName.replace("%data%",bio.name);
-        HTMLheaderRole = HTMLheaderRole.replace("%data%",bio.role);
-        $("#header").prepend(HTMLheaderName+HTMLheaderRole);
+        //Temporaries vars declaration ,contains the modified content in each iteration and keep the content in the original vars
+        var HTMLheaderNameTemp,
+            HTMLheaderRoleTemp,
+            HTMLmobileTemp,
+            HTMLemailTemp,
+            HTMLgithubTemp,
+            HTMLtwitterTemp,
+            HTMLlocationTemp,
+            HTMLwelcomeMsgTemp,
+            HTMLbioPicTemp ="";
 
+        HTMLheaderNameTemp = HTMLheaderName.replace("%data%",bio.name);
+        HTMLheaderRoleTemp = HTMLheaderRole.replace("%data%",bio.role);
+        $("#header").prepend(HTMLheaderNameTemp+HTMLheaderRoleTemp);
+
+        //Useless var in bio contacts
         // var HTMLcontactGeneric = '<li class="flex-item"><span class="orange-text">%contact%</span><span class="white-text">%data%</span></li>';
         // var HTMLblog = '<li class="flex-item"><span class="orange-text">blog</span><span class="white-text">%data%</span></li>';
-        HTMLmobile = HTMLmobile.replace("%data%",bio.contacts.mobile);
-        $("#topContacts").append(HTMLmobile);
-        HTMLemail = HTMLemail.replace("%data%",bio.contacts.email);
-        $("#topContacts").append(HTMLemail);
-        HTMLgithub = HTMLgithub.replace("%data%",bio.contacts.github);
-        $("#topContacts").append(HTMLgithub);
-        HTMLtwitter = HTMLtwitter.replace("%data%",bio.contacts.twitter);
-        $("#topContacts").append(HTMLtwitter);
-        HTMLlocation  = HTMLlocation.replace("%data%",bio.contacts.location);
-        $("#topContacts").append(HTMLlocation);
 
-        HTMLbioPic  = HTMLbioPic.replace("%data%",bio.bioPic);
-        $("#header").append(HTMLbioPic);
-        HTMLwelcomeMsg  = HTMLwelcomeMsg.replace("%data%",bio.welcomeMessage);
-        $("#header").append(HTMLwelcomeMsg);
+        HTMLmobileTemp = HTMLmobile.replace("%data%",bio.contacts.mobile);
+        $("#topContacts").append(HTMLmobileTemp);
+        HTMLemailTemp = HTMLemail.replace("%data%",bio.contacts.email);
+        $("#topContacts").append(HTMLemailTemp);
+        HTMLgithubTemp = HTMLgithub.replace("%data%",bio.contacts.github);
+        $("#topContacts").append(HTMLgithubTemp);
+        HTMLtwitterTemp = HTMLtwitter.replace("%data%",bio.contacts.twitter);
+        $("#topContacts").append(HTMLtwitterTemp);
+        HTMLlocationTemp = HTMLlocation.replace("%data%",bio.contacts.location);
+        $("#topContacts").append(HTMLlocationTemp);
 
-        $("#main").append(internationalizeButton);
-    },
+        HTMLwelcomeMsgTemp = HTMLwelcomeMsg.replace("%data%",bio.welcomeMessage);
+        $("#header").append(HTMLwelcomeMsgTemp);
+
+        HTMLbioPicTemp  = HTMLbioPic.replace("%data%",bio.bioPic);
+        $("#header").append(HTMLbioPicTemp);
+
+        //Temporary var HTMLskillsTemp declaration ,contains the modified HTMLskills content in each iteration and keep the content in the original vars
+        var HTMLskillsTemp="";
+        $("#header").append(HTMLskillsStart);
+        //Adds each skill in the index.html
+        for (var skill in bio.skills) {
+            HTMLskillsTemp = HTMLskills;
+            HTMLskillsTemp = HTMLskills.replace("%data%",bio.skills[skill]);
+            $("#skills").append(HTMLskillsTemp);
+        };
+        //Adds the internationalizeButton in the index.html
+        $("#topContacts").append(internationalizeButton);
+    }
 };
 
+//Creates JSON education
 var education = {
     "schools": [
         {
             "name": "FIAP",
-            "location": "São Paulo, SP",
+            "location": "Rio de Janeiro",
             "degree": "MBA",
             "majors": [
-                "a"
+                "a","b"
             ],
-            "dates": "",
+            "dates": "2015-2016",
             "url": "",
         },
         {
             "name": "FATEC",
-            "location": "São Paulo, SP",
+            "location": "Espirito Santo",
             "degree": "Degree",
             "majors": [
-                "a"
+                "a","c"
             ],
-            "dates": "",
+            "dates": "2009-2013",
             "url": "",
         },
         {
             "name": "João Borges",
-            "location": "São Paulo, SP",
+            "location": "Minas Gerais",
             "degree": "High Scholl",
             "majors": [
-                "a"
+                "a","d"
             ],
-            "dates": "",
             "url": ""
         }
     ],
     "onlineCourses": [
         {
-            "title": "",
-            "school": "",
-            "dates": "",
-            "url": ""
+            "title": "Front-End Web Developer Nanodegree",
+            "school": "Udacity",
+            "dates": "2016-2017",
+            "url": "https://br.udacity.com/course/front-end-web-developer-nanodegree--nd001/"
         },
         {
-            "title": "",
-            "school": "",
-            "dates": "",
-            "url": ""
+            "title": "HTML, CSS e JavaScript",
+            "school": "Hong Kong University of Science and Technology",
+            "dates": "2012-2013",
+            "url": "https://pt.coursera.org/learn/html-css-javascript"
         }
     ],
-    "display": function(){},
+    /**
+    * @description Adds all education object details in the index.html
+    *
+    */
+    "display": function(){
+        $("#education").append(HTMLschoolStart);
+        //Temporaries vars declaration ,contains the modified content in each iteration and keep the content in the original vars
+        var HTMLschoolNameTemp,
+            HTMLschoolDegreeTemp,
+            HTMLschoolDatesTemp,
+            HTMLschoolLocationTemp,
+            HTMLschoolMajorTemp,
+            HTMLonlineTitleTemp,
+            HTMLonlineSchoolTemp,
+            HTMLonlineDatesTemp,
+            HTMLonlineURLTemp ="";
+
+        for(var i in education.schools){
+            HTMLschoolNameTemp = HTMLschoolName.replace("%data%",education.schools[i].name);
+            HTMLschoolDegreeTemp = HTMLschoolDegree.replace("%data%",education.schools[i].degree);
+            $(".education-entry").append(HTMLschoolNameTemp+HTMLschoolDegreeTemp);
+            HTMLschoolDatesTemp = HTMLschoolDates.replace("%data%",education.schools[i].dates);
+            $(".education-entry").append(HTMLschoolDatesTemp);
+            HTMLschoolLocationTemp = HTMLschoolLocation.replace("%data%",education.schools[i].location);
+            $(".education-entry").append(HTMLschoolLocationTemp);
+            HTMLschoolMajorTemp = HTMLschoolMajor.replace("%data%",education.schools[i].majors);
+            $(".education-entry").append(HTMLschoolMajorTemp);
+        };
+
+        $(".education-entry").append(HTMLonlineClasses);
+
+        for(var x in education.onlineCourses){
+            HTMLonlineTitleTemp = HTMLonlineTitle.replace("%data%",education.onlineCourses[x].title);
+            HTMLonlineSchoolTemp = HTMLonlineSchool.replace("%data%",education.onlineCourses[x].school);
+            $(".education-entry").append(HTMLonlineTitleTemp+HTMLonlineSchoolTemp);
+            HTMLonlineDatesTemp = HTMLonlineDates.replace("%data%",education.onlineCourses[x].dates);
+            $(".education-entry").append(HTMLonlineDatesTemp);
+            HTMLonlineURLTemp = HTMLonlineURL.replace("%data%",education.onlineCourses[x].url);
+            $(".education-entry").append(HTMLonlineURLTemp);
+        };
+    }
 };
 
+//Creates JSON work
 var work = {
     "jobs": [
         {
             "employer": "Diebold",
             "title": "Systems Analyst",
-            "location": "São Paulo, SP",
+            "location": "Belo Horizonte",
             "dates": "January 2014 - May 2017",
             "description": "Goat when the cheese comes out everybody's happy feta. Say cheese cut the cheese feta fromage everyone loves cheddar stinking bishop fromage. Mascarpone bocconcini melted cheese airedale mozzarella dolcelatte monterey jack cheese on toast. Bavarian bergkase cow edam mozzarella stinking bishop cheese slices."
         },
         {
             "employer": "Itau Bank",
             "title": "Systems Analyst",
-            "location": "São Paulo, SP",
+            "location": "FLorianopolis",
             "dates": "January 2012 - January 2014",
             "description": "Pecorino cheesy feet cheesecake. Pecorino squirty cheese stinking bishop bocconcini cheese and biscuits paneer pepper jack gouda. Cheesy grin boursin lancashire gouda cut the cheese fromage frais queso roquefort. Everyone loves swiss."
         },
         {
             "employer": "Quint",
             "title": "Systems Analyst",
-            "location": "São Paulo, SP",
+            "location": "Blumenau",
             "dates": "January 2010 - December 2011",
             "description": "Boursin macaroni cheese halloumi. Caerphilly cow cream cheese ricotta croque monsieur fromage pecorino queso. Cheese triangles bavarian bergkase melted cheese danish fontina cheese and biscuits cheese strings fromage smelly cheese. Emmental cut the cheese bavarian bergkase manchego mozzarella cheeseburger port-salut cheese on toast. Caerphilly lancashire macaroni cheese babybel."
         }
     ],
-    "display": function(){},
+    /**
+    * @description Adds all work object details in the index.html
+    *
+    */
+    "display": function(){
+        //Temporaries vars declaration ,contains the modified content in each iteration and keep the content in the original vars
+        var HTMLworkEmployerTemp,
+            HTMLworkTitleTemp,
+            HTMLworkDatesTemp,
+            HTMLworkLocationTemp,
+            HTMLworkDescriptionTemp ="";
+
+        for (var i in work.jobs) {
+            $("#workExperience").append(HTMLworkStart);
+            HTMLworkEmployerTemp = HTMLworkEmployer.replace("%data%",work.jobs[i].employer);
+            HTMLworkTitleTemp = HTMLworkTitle.replace("%data%",work.jobs[i].title);
+            $(".work-entry:last").append(HTMLworkEmployerTemp+" "+HTMLworkTitleTemp);
+            HTMLworkDatesTemp = HTMLworkDates.replace("%data%",work.jobs[i].dates);
+            $(".work-entry:last").append(HTMLworkDatesTemp);
+            HTMLworkLocationTemp = HTMLworkLocation.replace("%data%",work.jobs[i].location);
+            $(".work-entry:last").append(HTMLworkLocationTemp);
+            HTMLworkDescriptionTemp = HTMLworkDescription.replace("%data%",work.jobs[i].description);
+            $(".work-entry:last").append(HTMLworkDescriptionTemp);
+        }
+    }
 };
 
+//Creates JSON projects
 var projects = {
     "projects": [
         {
@@ -154,43 +233,43 @@ var projects = {
             "images": ["images/fry.jpg","images/techpivot-ninja.png"]
         }
     ],
+    /**
+    * @description Adds all projects object details in the index.html
+    *
+    */
     "display" : function (){
+        //Temporaries vars declaration ,contains the modified content in each iteration and keep the content in the original vars
+        var HTMLprojectTitleTemp,
+            HTMLprojectDatesTemp ,
+            HTMLprojectDescriptionTemp,
+            HTMLprojectImageTemp ="";
+
         for (var i in projects.projects) {
             $("#projects").append(HTMLprojectStart);
-            HTMLprojectTitleSec = HTMLprojectTitle.replace("%data%",projects.projects[i].title);
-            $(".project-entry:last").append(HTMLprojectTitleSec);
-            HTMLprojectDatesSec = HTMLprojectDates.replace("%data%",projects.projects[i].dates);
-            $(".project-entry:last").append(HTMLprojectDatesSec);
-            HTMLprojectDescriptionSec = HTMLprojectDescription.replace("%data%",projects.projects[i].description);
-            $(".project-entry:last").append(HTMLprojectDescriptionSec);
+            HTMLprojectTitleTemp = HTMLprojectTitle.replace("%data%",projects.projects[i].title);
+            $(".project-entry:last").append(HTMLprojectTitleTemp);
+            HTMLprojectDatesTemp = HTMLprojectDates.replace("%data%",projects.projects[i].dates);
+            $(".project-entry:last").append(HTMLprojectDatesTemp);
+            HTMLprojectDescriptionTemp = HTMLprojectDescription.replace("%data%",projects.projects[i].description);
+            $(".project-entry:last").append(HTMLprojectDescriptionTemp);
             for (var x in projects.projects[i].images) {
-                HTMLprojectImageSec = HTMLprojectImage.replace("%data%",projects.projects[i].images[x]);
-                $(".project-entry:last").append(HTMLprojectImageSec);
+                HTMLprojectImageTemp = HTMLprojectImage.replace("%data%",projects.projects[i].images[x]);
+                $(".project-entry:last").append(HTMLprojectImageTemp);
             }
         }
-    },
+    }
 };
 
 
-
-function displayWork(){
-    for (var i in work.jobs) {
-        $("#workExperience").append(HTMLworkStart);
-        HTMLworkEmployerSec = HTMLworkEmployer.replace("%data%",work.jobs[i].employer);
-        HTMLworkTitleSec = HTMLworkTitle.replace("%data%",work.jobs[i].title);
-        $(".work-entry:last").append(HTMLworkEmployerSec+" "+HTMLworkTitleSec);
-        HTMLworkDatesSec = HTMLworkDates.replace("%data%",work.jobs[i].dates);
-        $(".work-entry:last").append(HTMLworkDatesSec);
-        HTMLworkLocationSec = HTMLworkLocation.replace("%data%",work.jobs[i].location);
-        $(".work-entry:last").append(HTMLworkLocationSec);
-        HTMLworkDescriptionSec = HTMLworkDescription.replace("%data%",work.jobs[i].description);
-        $(".work-entry:last").append(HTMLworkDescriptionSec);
-    }
-}
-
-var firstName="";
-var secondName="";
+/**
+*@description Capitalize the last name in the HTMLheaderNameTemp var
+*
+*@param {string} name - The content in the HTMLheaderNameTemp var
+*@returns {string} The name formated
+*/
 function inName(name){
+    var firstName="";
+    var secondName="";
     var nameArray = name.split(" ");
     firstName = nameArray[0].toLowerCase();
     secondName = nameArray[1].toUpperCase();
@@ -207,21 +286,13 @@ function inName(name){
 }
 
 bio.display();
-displayWork();
+work.display();
 projects.display();
-if (bio.skills.length > 0) {
-    var HTMLskillsSec="";
-    $("#header").append(HTMLskillsStart);
-    for (var skill in bio.skills) {
-        HTMLskillsSec = HTMLskills;
-        HTMLskillsSec = HTMLskills.replace("%data%",bio.skills[skill]);
-        $("#skills").append(HTMLskillsSec);
-    }
-}
-HTMLheaderName = HTMLheaderName.replace("%data%",internationalizeButton.click(inName()));
-
-
+education.display();
 $("#mapDiv").append(googleMap);
+
+
+
 
 
 
