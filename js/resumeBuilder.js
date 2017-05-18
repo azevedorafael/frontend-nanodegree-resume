@@ -11,9 +11,13 @@ var bio = {
     },
     "welcomeMessage": "'Timendi causa est nescire - Ignorance is the cause of fear.'",
     "skills": [
-        "HTML5", "CSS3", "JS", "JQuery", "GULP"
+        "HTML5",
+        "CSS3",
+        "JS",
+        "JQuery",
+        "GULP"
     ],
-    "bioPic": "images/fry.jpg",
+    "bioPic": "images/me.jpg",
     /**
     * @description Adds all bio object details in the index.html
     *
@@ -73,33 +77,39 @@ var education = {
     "schools": [
         {
             "name": "FIAP",
-            "location": "Rio de Janeiro",
-            "degree": "MBA",
+            "location": "São Paulo",
+            "degree": "SOA-MBA",
             "majors": [
-                "a","b"
+                "SOA",
+                "Software Engineering",
+                "TOGAF"
             ],
             "dates": "2015-2016",
-            "url": "",
+            "url": "https://www.fiap.com.br/mba",
         },
         {
             "name": "FATEC",
-            "location": "Espirito Santo",
-            "degree": "Degree",
+            "location": "São Paulo",
+            "degree": "Technology Degree",
             "majors": [
-                "a","c"
+                "Algorithms",
+                "Programing Logic",
+                "Data Structure"
             ],
             "dates": "2009-2013",
-            "url": "",
+            "url": "http://www.fatecsp.br",
         },
         {
             "name": "João Borges",
-            "location": "Minas Gerais",
+            "location": "São Paulo",
             "degree": "High Scholl",
             "majors": [
-                "a","d"
+                "Portuguese",
+                "English",
+                "Math"
             ],
             "dates": "2003-2007",
-            "url": ""
+            "url": "http://eejoaoborges.com.br"
         }
     ],
     "onlineCourses": [
@@ -107,7 +117,7 @@ var education = {
             "title": "Front-End Web Developer Nanodegree",
             "school": "Udacity",
             "dates": "2016-2017",
-            "url": "https://br.udacity.com/course/front-end-web-developer-nanodegree--nd001/"
+            "url": "https://br.udacity.com/course/front-end-web-developer-nanodegree--nd001"
         },
         {
             "title": "HTML, CSS e JavaScript",
@@ -136,6 +146,7 @@ var education = {
         for(var i in education.schools){
             if(education.schools.hasOwnProperty(i)){
                 HTMLschoolNameTemp = HTMLschoolName.replace("%data%",education.schools[i].name);
+                HTMLschoolNameTemp = HTMLschoolNameTemp.replace("%#%",education.schools[i].url);
                 HTMLschoolDegreeTemp = HTMLschoolDegree.replace("%data%",education.schools[i].degree);
                 $(".education-entry").append(HTMLschoolNameTemp+HTMLschoolDegreeTemp);
                 HTMLschoolDatesTemp = HTMLschoolDates.replace("%data%",education.schools[i].dates);
@@ -152,11 +163,13 @@ var education = {
         for(var x in education.onlineCourses){
             if(education.onlineCourses.hasOwnProperty(x)){
                 HTMLonlineTitleTemp = HTMLonlineTitle.replace("%data%",education.onlineCourses[x].title);
+                HTMLonlineTitleTemp = HTMLonlineTitleTemp.replace("%#%",education.onlineCourses[x].url);
                 HTMLonlineSchoolTemp = HTMLonlineSchool.replace("%data%",education.onlineCourses[x].school);
                 $(".education-entry").append(HTMLonlineTitleTemp+HTMLonlineSchoolTemp);
                 HTMLonlineDatesTemp = HTMLonlineDates.replace("%data%",education.onlineCourses[x].dates);
                 $(".education-entry").append(HTMLonlineDatesTemp);
                 HTMLonlineURLTemp = HTMLonlineURL.replace("%data%",education.onlineCourses[x].url);
+                HTMLonlineURLTemp = HTMLonlineURLTemp.replace("%#%",education.onlineCourses[x].url);
                 $(".education-entry").append(HTMLonlineURLTemp);
             }
         };
@@ -169,23 +182,26 @@ var work = {
         {
             "employer": "Diebold",
             "title": "Systems Analyst",
-            "location": "Belo Horizonte",
+            "url": "http://www.dieboldnixdorf.com",
+            "location": "São Paulo,SP",
             "dates": "January 2014 - May 2017",
-            "description": "Goat when the cheese comes out everybody's happy feta. Say cheese cut the cheese feta fromage everyone loves cheddar stinking bishop fromage. Mascarpone bocconcini melted cheese airedale mozzarella dolcelatte monterey jack cheese on toast. Bavarian bergkase cow edam mozzarella stinking bishop cheese slices."
+            "description": "Responsible for the guarantee of the Quality of the software, through the validation of the software, specifications and related manuals."
         },
         {
             "employer": "Itau Bank",
             "title": "Systems Analyst",
-            "location": "FLorianopolis",
+            "url": "https://www.itau.com.br",
+            "location": "São Paulo,SP",
             "dates": "January 2012 - January 2014",
-            "description": "Pecorino cheesy feet cheesecake. Pecorino squirty cheese stinking bishop bocconcini cheese and biscuits paneer pepper jack gouda. Cheesy grin boursin lancashire gouda cut the cheese fromage frais queso roquefort. Everyone loves swiss."
+            "description": "Timely management of systemic international incidents, with business origin and T.I."
         },
         {
             "employer": "Quint",
             "title": "Systems Analyst",
-            "location": "Blumenau",
+            "url": "https://www.quintgroup.com",
+            "location": "São Paulo,SP",
             "dates": "January 2010 - December 2011",
-            "description": "Boursin macaroni cheese halloumi. Caerphilly cow cream cheese ricotta croque monsieur fromage pecorino queso. Cheese triangles bavarian bergkase melted cheese danish fontina cheese and biscuits cheese strings fromage smelly cheese. Emmental cut the cheese bavarian bergkase manchego mozzarella cheeseburger port-salut cheese on toast. Caerphilly lancashire macaroni cheese babybel."
+            "description": "Quality control of systemic national incidents of different priorities."
         }
     ],
     /**
@@ -204,6 +220,7 @@ var work = {
             if(work.jobs.hasOwnProperty(i)){
                 $("#workExperience").append(HTMLworkStart);
                 HTMLworkEmployerTemp = HTMLworkEmployer.replace("%data%",work.jobs[i].employer);
+                HTMLworkEmployerTemp = HTMLworkEmployerTemp.replace("%#%",work.jobs[i].url);
                 HTMLworkTitleTemp = HTMLworkTitle.replace("%data%",work.jobs[i].title);
                 $(".work-entry:last").append(HTMLworkEmployerTemp+" "+HTMLworkTitleTemp);
                 HTMLworkDatesTemp = HTMLworkDates.replace("%data%",work.jobs[i].dates);
@@ -222,21 +239,21 @@ var projects = {
     "projects": [
         {
             "title": "Alurinha",
-            "dates": "January 2010 - December 2011",
-            "description": "Aqui é Body Builder Ipsum PORRA! Vai subir árvore é o caralho porra! Aqui é bodybuilder porra! Aqui nóis constrói fibra, não é água com músculo. Vem porra! Ó o homem ali porra!, é 13 porra! Eu quero esse 13 daqui a pouquinho aí.",
-            "images": ["images/fry.jpg","images/techpivot-ninja.png"]
+            "dates": "January 2017 - February 2017 ",
+            "description": "Alurinha is a final project from the Flex Box course at Alura.",
+            "images": ["images/alurinha-layout-desktop.jpg"]
         },
         {
             "title": "Responsive Blog",
-            "dates": "January 2010 - December 2011",
-            "description": "Eita porra!, tá saindo da jaula o monstro! Ó o homem ali porra!, é 13 porra! Vo derrubar tudo essas árvore do parque ibirapuera. É 13 porra! Sabe o que é isso daí? Trapézio descendente é o nome disso aí. Vai subir árvore é o caralho porra!",
-            "images": ["images/fry.jpg","images/techpivot-ninja.png"]
+            "dates": "March 2017 - April 2017",
+            "description": "It is part of the Front End Web Developer Nanodegree course at Udacity.",
+            "images": ["images/responsive-blog.jpg"]
         },
         {
             "title": "Animal Trading Card",
-            "dates": "January 2010 - December 2011",
-            "description": "Tá comigo porra. Aqui nóis constrói fibra, não é água com músculo. Vai subir árvore é o caralho porra! Vo derrubar tudo essas árvore do parque ibirapuera. Que não vai dá rapaiz, não vai dá essa porra. Eu quero esse 13 daqui a pouquinho aí.",
-            "images": ["images/fry.jpg","images/techpivot-ninja.png"]
+            "dates": "April 2017 - May 2017",
+            "description": "This is part of the core curriculum in the Front End Web Developer Nanodegree course at Udacity.",
+            "images": ["images/animal-trading-cards.jpg"]
         }
     ],
     /**

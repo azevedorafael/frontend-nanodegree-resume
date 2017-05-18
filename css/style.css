@@ -24,6 +24,11 @@ h6 {
   padding: 0 5%;
 }
 
+.project-entry img{
+  width: 30%;
+  margin: 0 30%;
+}
+
 h1 {
   font-size: 40px;
   color: #f5a623;
@@ -127,9 +132,28 @@ a {
   background-color: #4a4a4a;
 }
 
+.nav {
+    background-color: #484848;
+}
+
+.nav a {
+    color: #f3f3f3;
+    font-size: 18px;
+    text-align: center;
+    border-bottom: inset #f3f3f3;
+    padding: 14px 16px;
+}
+
+.nav a:hover{
+    background: rgba(0,0,0,0);
+  	color: #f5a623;
+	  box-shadow: inset 0 0 0 3px #f5a623;
+}
+
 /* TODO: Replace with image later */
 #header {
-  background-color: #484848;
+    background: linear-gradient(#484848,#888,#000);
+    padding-top: 2px;
 }
 
 .flex-box {
