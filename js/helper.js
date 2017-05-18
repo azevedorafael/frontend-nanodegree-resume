@@ -119,8 +119,6 @@ function initializeMap() {
   appended to #mapDiv in resumeBuilder.js.
   */
   map = new google.maps.Map(document.querySelector('#map'), mapOptions);
-  console.log(map);
-
 
   /*
   locationFinder() returns an array of every location string from the JSONs
@@ -150,7 +148,6 @@ function initializeMap() {
     work.jobs.forEach(function(job){
       locations.push(job.location);
     });
-    console.log(locations);
     return locations;
   }
 
@@ -214,7 +211,6 @@ function initializeMap() {
     // creates a Google place search service object. PlacesService does the work of
     // actually searching for location data.
     var service = new google.maps.places.PlacesService(map);
-    console.log(service);
 
     // Iterates through the array of locations, creates a search object for each location
       locations.forEach(function(place){
