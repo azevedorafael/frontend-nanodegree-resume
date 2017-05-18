@@ -7,7 +7,7 @@ var bio = {
         "email": "rafaelsilva@gmail.com",
         "github": "azevedorafael",
         "twitter": "@Rafazevedosilva",
-        "location": "São Paulo"
+        "location": "AV. EUSÉBIO MATOSO, 218"
     },
     "welcomeMessage": "'Timendi causa est nescire - Ignorance is the cause of fear.'",
     "skills": [
@@ -77,7 +77,7 @@ var education = {
     "schools": [
         {
             "name": "FIAP",
-            "location": "São Paulo",
+            "location": "São Paulo,SP",
             "degree": "SOA-MBA",
             "majors": [
                 "SOA",
@@ -183,7 +183,7 @@ var work = {
             "employer": "Diebold",
             "title": "Systems Analyst",
             "url": "http://www.dieboldnixdorf.com",
-            "location": "São Paulo,SP",
+            "location": "Francisco Matarazzo, 1350 ",
             "dates": "January 2014 - May 2017",
             "description": "Responsible for the guarantee of the Quality of the software, through the validation of the software, specifications and related manuals."
         },
@@ -191,7 +191,7 @@ var work = {
             "employer": "Itau Bank",
             "title": "Systems Analyst",
             "url": "https://www.itau.com.br",
-            "location": "São Paulo,SP",
+            "location": "Rua Dona Ana Néri, 326",
             "dates": "January 2012 - January 2014",
             "description": "Timely management of systemic international incidents, with business origin and T.I."
         },
@@ -199,7 +199,7 @@ var work = {
             "employer": "Quint",
             "title": "Systems Analyst",
             "url": "https://www.quintgroup.com",
-            "location": "São Paulo,SP",
+            "location": "R. Ramos Batista, 152 ",
             "dates": "January 2010 - December 2011",
             "description": "Quality control of systemic national incidents of different priorities."
         }
