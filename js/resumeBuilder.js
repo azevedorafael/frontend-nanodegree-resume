@@ -19,10 +19,10 @@ var bio = {
     ],
     "bioPic": "images/me.jpg",
     /**
-    * @description Adds all bio object details in the index.html
-    *
-    */
-    "display" : function (){
+     * @description Adds all bio object details in the index.html
+     *
+     */
+    "display": function () {
         //Temporaries vars declaration ,contains the modified content in each iteration and keep the content in the original vars
         var HTMLheaderNameTemp,
             HTMLheaderRoleTemp,
@@ -32,44 +32,44 @@ var bio = {
             HTMLtwitterTemp,
             HTMLlocationTemp,
             HTMLwelcomeMsgTemp,
-            HTMLbioPicTemp ="";
+            HTMLbioPicTemp = "";
 
-        HTMLheaderNameTemp = HTMLheaderName.replace("%data%",bio.name);
-        HTMLheaderRoleTemp = HTMLheaderRole.replace("%data%",bio.role);
-        $("#header").prepend(HTMLheaderNameTemp+HTMLheaderRoleTemp);
+        HTMLheaderNameTemp = HTMLheaderName.replace("%data%", bio.name);
+        HTMLheaderRoleTemp = HTMLheaderRole.replace("%data%", bio.role);
+        $("#header").prepend(HTMLheaderNameTemp + HTMLheaderRoleTemp);
 
         //Useless var in bio contacts
         // var HTMLcontactGeneric = '<li class="flex-item"><span class="orange-text">%contact%</span><span class="white-text">%data%</span></li>';
         // var HTMLblog = '<li class="flex-item"><span class="orange-text">blog</span><span class="white-text">%data%</span></li>';
 
-        HTMLmobileTemp = HTMLmobile.replace("%data%",bio.contacts.mobile);
+        HTMLmobileTemp = HTMLmobile.replace("%data%", bio.contacts.mobile);
         $("#topContacts").append(HTMLmobileTemp);
         $("#footerContacts").append(HTMLmobileTemp);
-        HTMLemailTemp = HTMLemail.replace("%data%",bio.contacts.email);
+        HTMLemailTemp = HTMLemail.replace("%data%", bio.contacts.email);
         $("#topContacts").append(HTMLemailTemp);
         $("#footerContacts").append(HTMLemailTemp);
-        HTMLgithubTemp = HTMLgithub.replace("%data%",bio.contacts.github);
+        HTMLgithubTemp = HTMLgithub.replace("%data%", bio.contacts.github);
         $("#topContacts").append(HTMLgithubTemp);
         $("#footerContacts").append(HTMLgithubTemp);
-        HTMLtwitterTemp = HTMLtwitter.replace("%data%",bio.contacts.twitter);
+        HTMLtwitterTemp = HTMLtwitter.replace("%data%", bio.contacts.twitter);
         $("#topContacts").append(HTMLtwitterTemp);
         $("#footerContacts").append(HTMLtwitterTemp);
-        HTMLlocationTemp = HTMLlocation.replace("%data%",bio.contacts.location);
+        HTMLlocationTemp = HTMLlocation.replace("%data%", bio.contacts.location);
         $("#topContacts").append(HTMLlocationTemp);
         $("#footerContacts").append(HTMLlocationTemp);
 
-        HTMLwelcomeMsgTemp = HTMLwelcomeMsg.replace("%data%",bio.welcomeMessage);
+        HTMLwelcomeMsgTemp = HTMLwelcomeMsg.replace("%data%", bio.welcomeMessage);
         $("#header").append(HTMLwelcomeMsgTemp);
 
-        HTMLbioPicTemp  = HTMLbioPic.replace("%data%",bio.bioPic);
+        HTMLbioPicTemp = HTMLbioPic.replace("%data%", bio.bioPic);
         $("#header").append(HTMLbioPicTemp);
 
         //Temporary var HTMLskillsTemp declaration ,contains the modified HTMLskills content in each iteration and keep the content in the original vars
-        var HTMLskillsTemp="";
+        var HTMLskillsTemp = "";
         $("#header").append(HTMLskillsStart);
         //Adds each skill in the index.html
-        bio.skills.forEach(function(element){
-            HTMLskillsTemp = HTMLskills.replace("%data%",element);
+        bio.skills.forEach(function (element) {
+            HTMLskillsTemp = HTMLskills.replace("%data%", element);
             $("#skills").append(HTMLskillsTemp);
         });
         //Adds the internationalizeButton in the index.html
@@ -79,8 +79,7 @@ var bio = {
 
 //Creates JSON education
 var education = {
-    "schools": [
-        {
+    "schools": [{
             "name": "FIAP",
             "location": "São Paulo,SP",
             "degree": "SOA-MBA",
@@ -117,8 +116,7 @@ var education = {
             "url": "http://eejoaoborges.com.br"
         }
     ],
-    "onlineCourses": [
-        {
+    "onlineCourses": [{
             "title": "Front-End Web Developer Nanodegree",
             "school": "Udacity",
             "dates": "2016-2017",
@@ -132,10 +130,10 @@ var education = {
         }
     ],
     /**
-    * @description Adds all education object details in the index.html
-    *
-    */
-    "display": function(){
+     * @description Adds all education object details in the index.html
+     *
+     */
+    "display": function () {
         $("#education").append(HTMLschoolStart);
         //Temporaries vars declaration ,contains the modified content in each iteration and keep the content in the original vars
         var HTMLschoolNameTemp,
@@ -146,32 +144,32 @@ var education = {
             HTMLonlineTitleTemp,
             HTMLonlineSchoolTemp,
             HTMLonlineDatesTemp,
-            HTMLonlineURLTemp ="";
+            HTMLonlineURLTemp = "";
 
-        education.schools.forEach(function(element){
-            HTMLschoolNameTemp = HTMLschoolName.replace("%data%",element.name)
-            HTMLschoolNameTemp = HTMLschoolNameTemp.replace("%#%",element.url)
-            HTMLschoolDegreeTemp = HTMLschoolDegree.replace("%data%",element.degree)
-            $(".education-entry").append(HTMLschoolNameTemp+HTMLschoolDegreeTemp)
-            HTMLschoolDatesTemp = HTMLschoolDates.replace("%data%",element.dates)
+        education.schools.forEach(function (element) {
+            HTMLschoolNameTemp = HTMLschoolName.replace("%data%", element.name)
+            HTMLschoolNameTemp = HTMLschoolNameTemp.replace("%#%", element.url)
+            HTMLschoolDegreeTemp = HTMLschoolDegree.replace("%data%", element.degree)
+            $(".education-entry").append(HTMLschoolNameTemp + HTMLschoolDegreeTemp)
+            HTMLschoolDatesTemp = HTMLschoolDates.replace("%data%", element.dates)
             $(".education-entry").append(HTMLschoolDatesTemp)
-            HTMLschoolLocationTemp = HTMLschoolLocation.replace("%data%",element.location)
+            HTMLschoolLocationTemp = HTMLschoolLocation.replace("%data%", element.location)
             $(".education-entry").append(HTMLschoolLocationTemp)
-            HTMLschoolMajorTemp = HTMLschoolMajor.replace("%data%",element.majors)
+            HTMLschoolMajorTemp = HTMLschoolMajor.replace("%data%", element.majors)
             $(".education-entry").append(HTMLschoolMajorTemp)
         });
 
         $(".education-entry").append(HTMLonlineClasses);
 
-        education.onlineCourses.forEach(function(element){
-            HTMLonlineTitleTemp = HTMLonlineTitle.replace("%data%",element.title)
-            HTMLonlineTitleTemp = HTMLonlineTitleTemp.replace("%#%",element.url)
-            HTMLonlineSchoolTemp = HTMLonlineSchool.replace("%data%",element.school)
-            $(".education-entry").append(HTMLonlineTitleTemp+HTMLonlineSchoolTemp)
-            HTMLonlineDatesTemp = HTMLonlineDates.replace("%data%",element.dates)
+        education.onlineCourses.forEach(function (element) {
+            HTMLonlineTitleTemp = HTMLonlineTitle.replace("%data%", element.title)
+            HTMLonlineTitleTemp = HTMLonlineTitleTemp.replace("%#%", element.url)
+            HTMLonlineSchoolTemp = HTMLonlineSchool.replace("%data%", element.school)
+            $(".education-entry").append(HTMLonlineTitleTemp + HTMLonlineSchoolTemp)
+            HTMLonlineDatesTemp = HTMLonlineDates.replace("%data%", element.dates)
             $(".education-entry").append(HTMLonlineDatesTemp)
-            HTMLonlineURLTemp = HTMLonlineURL.replace("%data%",element.url)
-            HTMLonlineURLTemp = HTMLonlineURLTemp.replace("%#%",element.url)
+            HTMLonlineURLTemp = HTMLonlineURL.replace("%data%", element.url)
+            HTMLonlineURLTemp = HTMLonlineURLTemp.replace("%#%", element.url)
             $(".education-entry").append(HTMLonlineURLTemp)
         });
     }
@@ -179,8 +177,7 @@ var education = {
 
 //Creates JSON work
 var work = {
-    "jobs": [
-        {
+    "jobs": [{
             "employer": "Diebold",
             "title": "Systems Analyst",
             "url": "http://www.dieboldnixdorf.com",
@@ -206,18 +203,18 @@ var work = {
         }
     ],
     /**
-    * @description Adds all work object details in the index.html
-    *
-    */
-    "display": function(){
+     * @description Adds all work object details in the index.html
+     *
+     */
+    "display": function () {
         //Temporaries vars declaration ,contains the modified content in each iteration and keep the content in the original vars
         var HTMLworkEmployerTemp,
             HTMLworkTitleTemp,
             HTMLworkDatesTemp,
             HTMLworkLocationTemp,
-            HTMLworkDescriptionTemp ="";
+            HTMLworkDescriptionTemp = "";
 
-        work.jobs.forEach(function(element){
+        work.jobs.forEach(function (element) {
             $("#workExperience").append(HTMLworkStart);
             HTMLworkEmployerTemp = HTMLworkEmployer.replace("%data%", element.employer)
             HTMLworkEmployerTemp = HTMLworkEmployerTemp.replace("%#%", element.url)
@@ -235,8 +232,7 @@ var work = {
 
 //Creates JSON projects
 var projects = {
-    "projects": [
-        {
+    "projects": [{
             "title": "Alurinha",
             "dates": "January 2017 - February 2017 ",
             "description": "Alurinha is a final project from the Flex Box course at Alura.",
@@ -256,54 +252,53 @@ var projects = {
         }
     ],
     /**
-    * @description Adds all projects object details in the index.html
-    *
-    */
-    "display" : function (){
+     * @description Adds all projects object details in the index.html
+     *
+     */
+    "display": function () {
         //Temporaries vars declaration ,contains the modified content in each iteration and keep the content in the original vars
         var HTMLprojectTitleTemp,
-            HTMLprojectDatesTemp ,
+            HTMLprojectDatesTemp,
             HTMLprojectDescriptionTemp,
-            HTMLprojectImageTemp ="";
+            HTMLprojectImageTemp = "";
 
-        projects.projects.forEach(function(element){
+        projects.projects.forEach(function (element) {
             $("#projects").append(HTMLprojectStart)
-            HTMLprojectTitleTemp = HTMLprojectTitle.replace("%data%",element.title)
+            HTMLprojectTitleTemp = HTMLprojectTitle.replace("%data%", element.title)
             $(".project-entry:last").append(HTMLprojectTitleTemp)
-            HTMLprojectDatesTemp = HTMLprojectDates.replace("%data%",element.dates)
+            HTMLprojectDatesTemp = HTMLprojectDates.replace("%data%", element.dates)
             $(".project-entry:last").append(HTMLprojectDatesTemp)
-            HTMLprojectDescriptionTemp = HTMLprojectDescription.replace("%data%",element.description)
+            HTMLprojectDescriptionTemp = HTMLprojectDescription.replace("%data%", element.description)
             $(".project-entry:last").append(HTMLprojectDescriptionTemp)
-            for (var x in element.images) {
-                HTMLprojectImageTemp = HTMLprojectImage.replace("%data%",element.images[x])
+            element.images.forEach(function(element){
+                HTMLprojectImageTemp = HTMLprojectImage.replace("%data%", element)
                 $(".project-entry:last").append(HTMLprojectImageTemp)
-            }
+            })
         });
     }
 };
 
 
 /**
-*@description Capitalize the last name in the HTMLheaderNameTemp var
-*
-*@param {string} name - The content in the HTMLheaderNameTemp var
-*@returns {string} The name formated
-*/
-function inName(name){
-    var firstName="";
-    var secondName="";
+ *@description Capitalize the last name in the HTMLheaderNameTemp var
+ *
+ *@param {string} name - The content in the HTMLheaderNameTemp var
+ *@returns {string} The name formated
+ */
+function inName(name) {
+    var firstName = "";
+    var secondName = "";
     var nameArray = name.split(" ");
     firstName = nameArray[0].toLowerCase();
     secondName = nameArray[1].toUpperCase();
-    for (var i = 0 ; i < firstName.length; i++){
-        if (i === 0){
+    for (var i = 0; i < firstName.length; i++) {
+        if (i === 0) {
             firstNameTemp = firstName.charAt(i).toUpperCase();
-        }
-        else{
+        } else {
             firstNameTemp += firstName.charAt(i);
         }
     }
-    var nameFormated = firstNameTemp+" "+secondName;
+    var nameFormated = firstNameTemp + " " + secondName;
     return nameFormated;
 }
 
@@ -313,9 +308,3 @@ work.display();
 projects.display();
 education.display();
 $("#mapDiv").append(googleMap);
-
-
-
-
-
-
