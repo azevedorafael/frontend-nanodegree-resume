@@ -44,14 +44,19 @@ var bio = {
 
         HTMLmobileTemp = HTMLmobile.replace("%data%",bio.contacts.mobile);
         $("#topContacts").append(HTMLmobileTemp);
+        $("#footerContacts").append(HTMLmobileTemp);
         HTMLemailTemp = HTMLemail.replace("%data%",bio.contacts.email);
         $("#topContacts").append(HTMLemailTemp);
+        $("#footerContacts").append(HTMLemailTemp);
         HTMLgithubTemp = HTMLgithub.replace("%data%",bio.contacts.github);
         $("#topContacts").append(HTMLgithubTemp);
+        $("#footerContacts").append(HTMLgithubTemp);
         HTMLtwitterTemp = HTMLtwitter.replace("%data%",bio.contacts.twitter);
         $("#topContacts").append(HTMLtwitterTemp);
+        $("#footerContacts").append(HTMLtwitterTemp);
         HTMLlocationTemp = HTMLlocation.replace("%data%",bio.contacts.location);
         $("#topContacts").append(HTMLlocationTemp);
+        $("#footerContacts").append(HTMLlocationTemp);
 
         HTMLwelcomeMsgTemp = HTMLwelcomeMsg.replace("%data%",bio.welcomeMessage);
         $("#header").append(HTMLwelcomeMsgTemp);
@@ -143,36 +148,32 @@ var education = {
             HTMLonlineDatesTemp,
             HTMLonlineURLTemp ="";
 
-        for(var i in education.schools){
-            if(education.schools.hasOwnProperty(i)){
-                HTMLschoolNameTemp = HTMLschoolName.replace("%data%",education.schools[i].name);
-                HTMLschoolNameTemp = HTMLschoolNameTemp.replace("%#%",education.schools[i].url);
-                HTMLschoolDegreeTemp = HTMLschoolDegree.replace("%data%",education.schools[i].degree);
-                $(".education-entry").append(HTMLschoolNameTemp+HTMLschoolDegreeTemp);
-                HTMLschoolDatesTemp = HTMLschoolDates.replace("%data%",education.schools[i].dates);
-                $(".education-entry").append(HTMLschoolDatesTemp);
-                HTMLschoolLocationTemp = HTMLschoolLocation.replace("%data%",education.schools[i].location);
-                $(".education-entry").append(HTMLschoolLocationTemp);
-                HTMLschoolMajorTemp = HTMLschoolMajor.replace("%data%",education.schools[i].majors);
-                $(".education-entry").append(HTMLschoolMajorTemp);
-            }
-        };
+        education.schools.forEach(function(element){
+            HTMLschoolNameTemp = HTMLschoolName.replace("%data%",element.name)
+            HTMLschoolNameTemp = HTMLschoolNameTemp.replace("%#%",element.url)
+            HTMLschoolDegreeTemp = HTMLschoolDegree.replace("%data%",element.degree)
+            $(".education-entry").append(HTMLschoolNameTemp+HTMLschoolDegreeTemp)
+            HTMLschoolDatesTemp = HTMLschoolDates.replace("%data%",element.dates)
+            $(".education-entry").append(HTMLschoolDatesTemp)
+            HTMLschoolLocationTemp = HTMLschoolLocation.replace("%data%",element.location)
+            $(".education-entry").append(HTMLschoolLocationTemp)
+            HTMLschoolMajorTemp = HTMLschoolMajor.replace("%data%",element.majors)
+            $(".education-entry").append(HTMLschoolMajorTemp)
+        });
 
         $(".education-entry").append(HTMLonlineClasses);
 
-        for(var x in education.onlineCourses){
-            if(education.onlineCourses.hasOwnProperty(x)){
-                HTMLonlineTitleTemp = HTMLonlineTitle.replace("%data%",education.onlineCourses[x].title);
-                HTMLonlineTitleTemp = HTMLonlineTitleTemp.replace("%#%",education.onlineCourses[x].url);
-                HTMLonlineSchoolTemp = HTMLonlineSchool.replace("%data%",education.onlineCourses[x].school);
-                $(".education-entry").append(HTMLonlineTitleTemp+HTMLonlineSchoolTemp);
-                HTMLonlineDatesTemp = HTMLonlineDates.replace("%data%",education.onlineCourses[x].dates);
-                $(".education-entry").append(HTMLonlineDatesTemp);
-                HTMLonlineURLTemp = HTMLonlineURL.replace("%data%",education.onlineCourses[x].url);
-                HTMLonlineURLTemp = HTMLonlineURLTemp.replace("%#%",education.onlineCourses[x].url);
-                $(".education-entry").append(HTMLonlineURLTemp);
-            }
-        };
+        education.onlineCourses.forEach(function(element){
+            HTMLonlineTitleTemp = HTMLonlineTitle.replace("%data%",element.title)
+            HTMLonlineTitleTemp = HTMLonlineTitleTemp.replace("%#%",element.url)
+            HTMLonlineSchoolTemp = HTMLonlineSchool.replace("%data%",element.school)
+            $(".education-entry").append(HTMLonlineTitleTemp+HTMLonlineSchoolTemp)
+            HTMLonlineDatesTemp = HTMLonlineDates.replace("%data%",element.dates)
+            $(".education-entry").append(HTMLonlineDatesTemp)
+            HTMLonlineURLTemp = HTMLonlineURL.replace("%data%",element.url)
+            HTMLonlineURLTemp = HTMLonlineURLTemp.replace("%#%",element.url)
+            $(".education-entry").append(HTMLonlineURLTemp)
+        });
     }
 };
 
@@ -216,21 +217,19 @@ var work = {
             HTMLworkLocationTemp,
             HTMLworkDescriptionTemp ="";
 
-        for (var i in work.jobs) {
-            if(work.jobs.hasOwnProperty(i)){
-                $("#workExperience").append(HTMLworkStart);
-                HTMLworkEmployerTemp = HTMLworkEmployer.replace("%data%",work.jobs[i].employer);
-                HTMLworkEmployerTemp = HTMLworkEmployerTemp.replace("%#%",work.jobs[i].url);
-                HTMLworkTitleTemp = HTMLworkTitle.replace("%data%",work.jobs[i].title);
-                $(".work-entry:last").append(HTMLworkEmployerTemp+" "+HTMLworkTitleTemp);
-                HTMLworkDatesTemp = HTMLworkDates.replace("%data%",work.jobs[i].dates);
-                $(".work-entry:last").append(HTMLworkDatesTemp);
-                HTMLworkLocationTemp = HTMLworkLocation.replace("%data%",work.jobs[i].location);
-                $(".work-entry:last").append(HTMLworkLocationTemp);
-                HTMLworkDescriptionTemp = HTMLworkDescription.replace("%data%",work.jobs[i].description);
-                $(".work-entry:last").append(HTMLworkDescriptionTemp);
-            }
-        }
+        work.jobs.forEach(function(element){
+            $("#workExperience").append(HTMLworkStart);
+            HTMLworkEmployerTemp = HTMLworkEmployer.replace("%data%", element.employer)
+            HTMLworkEmployerTemp = HTMLworkEmployerTemp.replace("%#%", element.url)
+            HTMLworkTitleTemp = HTMLworkTitle.replace("%data%", element.title)
+            $(".work-entry:last").append(HTMLworkEmployerTemp + " " + HTMLworkTitleTemp)
+            HTMLworkDatesTemp = HTMLworkDates.replace("%data%", element.dates)
+            $(".work-entry:last").append(HTMLworkDatesTemp)
+            HTMLworkLocationTemp = HTMLworkLocation.replace("%data%", element.location)
+            $(".work-entry:last").append(HTMLworkLocationTemp)
+            HTMLworkDescriptionTemp = HTMLworkDescription.replace("%data%", element.description)
+            $(".work-entry:last").append(HTMLworkDescriptionTemp)
+        });
     }
 };
 
@@ -267,21 +266,19 @@ var projects = {
             HTMLprojectDescriptionTemp,
             HTMLprojectImageTemp ="";
 
-        for (var i in projects.projects) {
-            if(projects.projects.hasOwnProperty(i)){
-                $("#projects").append(HTMLprojectStart);
-                HTMLprojectTitleTemp = HTMLprojectTitle.replace("%data%",projects.projects[i].title);
-                $(".project-entry:last").append(HTMLprojectTitleTemp);
-                HTMLprojectDatesTemp = HTMLprojectDates.replace("%data%",projects.projects[i].dates);
-                $(".project-entry:last").append(HTMLprojectDatesTemp);
-                HTMLprojectDescriptionTemp = HTMLprojectDescription.replace("%data%",projects.projects[i].description);
-                $(".project-entry:last").append(HTMLprojectDescriptionTemp);
-                for (var x in projects.projects[i].images) {
-                    HTMLprojectImageTemp = HTMLprojectImage.replace("%data%",projects.projects[i].images[x]);
-                    $(".project-entry:last").append(HTMLprojectImageTemp);
-                }
+        projects.projects.forEach(function(element){
+            $("#projects").append(HTMLprojectStart)
+            HTMLprojectTitleTemp = HTMLprojectTitle.replace("%data%",element.title)
+            $(".project-entry:last").append(HTMLprojectTitleTemp)
+            HTMLprojectDatesTemp = HTMLprojectDates.replace("%data%",element.dates)
+            $(".project-entry:last").append(HTMLprojectDatesTemp)
+            HTMLprojectDescriptionTemp = HTMLprojectDescription.replace("%data%",element.description)
+            $(".project-entry:last").append(HTMLprojectDescriptionTemp)
+            for (var x in element.images) {
+                HTMLprojectImageTemp = HTMLprojectImage.replace("%data%",element.images[x])
+                $(".project-entry:last").append(HTMLprojectImageTemp)
             }
-        }
+        });
     }
 };
 
