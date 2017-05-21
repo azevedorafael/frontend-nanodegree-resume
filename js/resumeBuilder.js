@@ -22,7 +22,7 @@ var bio = {
      * @description Adds all bio object details in the index.html
      *
      */
-    "display": function () {
+    "display": function() {
         //Temporaries vars declaration ,contains the modified content in each iteration and keep the content in the original vars
         var HTMLheaderNameTemp,
             HTMLheaderRoleTemp,
@@ -68,7 +68,7 @@ var bio = {
         var HTMLskillsTemp = "";
         $("#header").append(HTMLskillsStart);
         //Adds each skill in the index.html
-        bio.skills.forEach(function (element) {
+        bio.skills.forEach(function(element) {
             HTMLskillsTemp = HTMLskills.replace("%data%", element);
             $("#skills").append(HTMLskillsTemp);
         });
@@ -133,7 +133,7 @@ var education = {
      * @description Adds all education object details in the index.html
      *
      */
-    "display": function () {
+    "display": function() {
         $("#education").append(HTMLschoolStart);
         //Temporaries vars declaration ,contains the modified content in each iteration and keep the content in the original vars
         var HTMLschoolNameTemp,
@@ -146,31 +146,31 @@ var education = {
             HTMLonlineDatesTemp,
             HTMLonlineURLTemp = "";
 
-        education.schools.forEach(function (element) {
-            HTMLschoolNameTemp = HTMLschoolName.replace("%data%", element.name)
-            HTMLschoolNameTemp = HTMLschoolNameTemp.replace("%#%", element.url)
-            HTMLschoolDegreeTemp = HTMLschoolDegree.replace("%data%", element.degree)
-            $(".education-entry").append(HTMLschoolNameTemp + HTMLschoolDegreeTemp)
-            HTMLschoolDatesTemp = HTMLschoolDates.replace("%data%", element.dates)
-            $(".education-entry").append(HTMLschoolDatesTemp)
-            HTMLschoolLocationTemp = HTMLschoolLocation.replace("%data%", element.location)
-            $(".education-entry").append(HTMLschoolLocationTemp)
-            HTMLschoolMajorTemp = HTMLschoolMajor.replace("%data%", element.majors)
-            $(".education-entry").append(HTMLschoolMajorTemp)
+        education.schools.forEach(function(element) {
+            HTMLschoolNameTemp = HTMLschoolName.replace("%data%", element.name);
+            HTMLschoolNameTemp = HTMLschoolNameTemp.replace("%#%", element.url);
+            HTMLschoolDegreeTemp = HTMLschoolDegree.replace("%data%", element.degree);
+            $(".education-entry").append(HTMLschoolNameTemp + HTMLschoolDegreeTemp);
+            HTMLschoolDatesTemp = HTMLschoolDates.replace("%data%", element.dates);
+            $(".education-entry").append(HTMLschoolDatesTemp);
+            HTMLschoolLocationTemp = HTMLschoolLocation.replace("%data%", element.location);
+            $(".education-entry").append(HTMLschoolLocationTemp);
+            HTMLschoolMajorTemp = HTMLschoolMajor.replace("%data%", element.majors);
+            $(".education-entry").append(HTMLschoolMajorTemp);
         });
 
         $(".education-entry").append(HTMLonlineClasses);
 
-        education.onlineCourses.forEach(function (element) {
-            HTMLonlineTitleTemp = HTMLonlineTitle.replace("%data%", element.title)
-            HTMLonlineTitleTemp = HTMLonlineTitleTemp.replace("%#%", element.url)
-            HTMLonlineSchoolTemp = HTMLonlineSchool.replace("%data%", element.school)
-            $(".education-entry").append(HTMLonlineTitleTemp + HTMLonlineSchoolTemp)
-            HTMLonlineDatesTemp = HTMLonlineDates.replace("%data%", element.dates)
-            $(".education-entry").append(HTMLonlineDatesTemp)
-            HTMLonlineURLTemp = HTMLonlineURL.replace("%data%", element.url)
-            HTMLonlineURLTemp = HTMLonlineURLTemp.replace("%#%", element.url)
-            $(".education-entry").append(HTMLonlineURLTemp)
+        education.onlineCourses.forEach(function(element) {
+            HTMLonlineTitleTemp = HTMLonlineTitle.replace("%data%", element.title);
+            HTMLonlineTitleTemp = HTMLonlineTitleTemp.replace("%#%", element.url);
+            HTMLonlineSchoolTemp = HTMLonlineSchool.replace("%data%", element.school);
+            $(".education-entry").append(HTMLonlineTitleTemp + HTMLonlineSchoolTemp);
+            HTMLonlineDatesTemp = HTMLonlineDates.replace("%data%", element.dates);
+            $(".education-entry").append(HTMLonlineDatesTemp);
+            HTMLonlineURLTemp = HTMLonlineURL.replace("%data%", element.url);
+            HTMLonlineURLTemp = HTMLonlineURLTemp.replace("%#%", element.url);
+            $(".education-entry").append(HTMLonlineURLTemp);
         });
     }
 };
@@ -206,7 +206,7 @@ var work = {
      * @description Adds all work object details in the index.html
      *
      */
-    "display": function () {
+    "display": function() {
         //Temporaries vars declaration ,contains the modified content in each iteration and keep the content in the original vars
         var HTMLworkEmployerTemp,
             HTMLworkTitleTemp,
@@ -214,18 +214,18 @@ var work = {
             HTMLworkLocationTemp,
             HTMLworkDescriptionTemp = "";
 
-        work.jobs.forEach(function (element) {
+        work.jobs.forEach(function(element) {
             $("#workExperience").append(HTMLworkStart);
-            HTMLworkEmployerTemp = HTMLworkEmployer.replace("%data%", element.employer)
-            HTMLworkEmployerTemp = HTMLworkEmployerTemp.replace("%#%", element.url)
-            HTMLworkTitleTemp = HTMLworkTitle.replace("%data%", element.title)
-            $(".work-entry:last").append(HTMLworkEmployerTemp + " " + HTMLworkTitleTemp)
-            HTMLworkDatesTemp = HTMLworkDates.replace("%data%", element.dates)
-            $(".work-entry:last").append(HTMLworkDatesTemp)
-            HTMLworkLocationTemp = HTMLworkLocation.replace("%data%", element.location)
-            $(".work-entry:last").append(HTMLworkLocationTemp)
-            HTMLworkDescriptionTemp = HTMLworkDescription.replace("%data%", element.description)
-            $(".work-entry:last").append(HTMLworkDescriptionTemp)
+            HTMLworkEmployerTemp = HTMLworkEmployer.replace("%data%", element.employer);
+            HTMLworkEmployerTemp = HTMLworkEmployerTemp.replace("%#%", element.url);
+            HTMLworkTitleTemp = HTMLworkTitle.replace("%data%", element.title);
+            $(".work-entry:last").append(HTMLworkEmployerTemp + " " + HTMLworkTitleTemp);
+            HTMLworkDatesTemp = HTMLworkDates.replace("%data%", element.dates);
+            $(".work-entry:last").append(HTMLworkDatesTemp);
+            HTMLworkLocationTemp = HTMLworkLocation.replace("%data%", element.location);
+            $(".work-entry:last").append(HTMLworkLocationTemp);
+            HTMLworkDescriptionTemp = HTMLworkDescription.replace("%data%", element.description);
+            $(".work-entry:last").append(HTMLworkDescriptionTemp);
         });
     }
 };
@@ -255,25 +255,25 @@ var projects = {
      * @description Adds all projects object details in the index.html
      *
      */
-    "display": function () {
+    "display": function() {
         //Temporaries vars declaration ,contains the modified content in each iteration and keep the content in the original vars
         var HTMLprojectTitleTemp,
             HTMLprojectDatesTemp,
             HTMLprojectDescriptionTemp,
             HTMLprojectImageTemp = "";
 
-        projects.projects.forEach(function (element) {
-            $("#projects").append(HTMLprojectStart)
-            HTMLprojectTitleTemp = HTMLprojectTitle.replace("%data%", element.title)
-            $(".project-entry:last").append(HTMLprojectTitleTemp)
-            HTMLprojectDatesTemp = HTMLprojectDates.replace("%data%", element.dates)
-            $(".project-entry:last").append(HTMLprojectDatesTemp)
-            HTMLprojectDescriptionTemp = HTMLprojectDescription.replace("%data%", element.description)
-            $(".project-entry:last").append(HTMLprojectDescriptionTemp)
-            element.images.forEach(function(element){
-                HTMLprojectImageTemp = HTMLprojectImage.replace("%data%", element)
-                $(".project-entry:last").append(HTMLprojectImageTemp)
-            })
+        projects.projects.forEach(function(element) {
+            $("#projects").append(HTMLprojectStart);
+            HTMLprojectTitleTemp = HTMLprojectTitle.replace("%data%", element.title);
+            $(".project-entry:last").append(HTMLprojectTitleTemp);
+            HTMLprojectDatesTemp = HTMLprojectDates.replace("%data%", element.dates);
+            $(".project-entry:last").append(HTMLprojectDatesTemp);
+            HTMLprojectDescriptionTemp = HTMLprojectDescription.replace("%data%", element.description);
+            $(".project-entry:last").append(HTMLprojectDescriptionTemp);
+            element.images.forEach(function(element) {
+                HTMLprojectImageTemp = HTMLprojectImage.replace("%data%", element);
+                $(".project-entry:last").append(HTMLprojectImageTemp);
+            });
         });
     }
 };

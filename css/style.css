@@ -24,7 +24,7 @@ h6 {
   padding: 0 5%;
 }
 
-.project-entry img{
+.project-entry img {
   width: 30%;
   margin: 0 30%;
 }
@@ -63,9 +63,7 @@ h3,
 h4,
 h5 {
   padding: 10px 5%;
-
 }
-
 
 .date-text {
   font-style: italic;
@@ -81,7 +79,6 @@ h5 {
   color: #999;
   line-height: 16px;
   float: right;
-
 }
 
 p {
@@ -133,27 +130,29 @@ a {
 }
 
 .nav {
-    background-color: #484848;
+  background-color: #484848;
 }
 
 .nav a {
-    color: #f3f3f3;
-    font-size: 18px;
-    text-align: center;
-    border-bottom: inset #f3f3f3;
-    padding: 14px 16px;
+  color: #f3f3f3;
+  font-size: 18px;
+  text-align: center;
+  border-bottom: inset #f3f3f3;
+  padding: 14px 16px;
 }
 
-.nav a:hover{
-    background: rgba(0,0,0,0);
-  	color: #f5a623;
-	  box-shadow: inset 0 0 0 3px #f5a623;
+.nav a:hover {
+  background: rgba(0, 0, 0, 0);
+  color: #f5a623;
+  box-shadow: inset 0 0 0 3px #f5a623;
 }
+
 
 /* TODO: Replace with image later */
+
 #header {
-    background: linear-gradient(#484848,#888,#000);
-    padding-top: 2px;
+  background: linear-gradient(#484848, #888, #000);
+  padding-top: 2px;
 }
 
 .flex-box {
@@ -199,6 +198,7 @@ span {
   text-align: center;
 }
 
+
 /* Media queries to handle various device widths */
 
 @media only screen and (max-width: 1024px) {
@@ -207,7 +207,7 @@ span {
   }
 }
 
-@media only screen and (max-width:900px) {
+@media only screen and (max-width: 900px) {
   .biopic {
     width: 175px;
   }
